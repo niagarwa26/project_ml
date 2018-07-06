@@ -8,18 +8,18 @@ print ("")
 
 form = cgi.FieldStorage()
 
-
+#retrieving the values from html forms
 loginname = form.getvalue('u')
 loginpw  = form.getvalue('p')
 
 
 
-
+#providing the database requirements
 db = py.Connect(user ="root",password="niks1234",database="adhoc")
 ### UPDATE mysql.user SET plugin = 'mysql_native_password', Password = PASSWORD('NEWPASSWORD') WHERE User = 'root'; for login using normal user
-
+#cursor is a function
 cursor = db.cursor()
-
+#sql query for checking the user name and password from database table
 sql="select * from login where name='"+loginname+"' and password='"+loginpw+"'"
 row=cursor.execute(sql)
 
